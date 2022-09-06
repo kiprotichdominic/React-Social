@@ -26,7 +26,10 @@ function Navbar() {
     const UserBox = styled(Box)(({ theme }) => ({
         display: "flex",
         alignItems: "center",
-        gap: "10px"
+        gap: "10px",
+        [theme.breakpoints.up("sm")]: {
+            display: "none"
+        }
     }))
 
     return (
