@@ -1,7 +1,9 @@
+import { useState } from "react"
 import { Mail, Notifications, Pets } from "@mui/icons-material"
-import { AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography } from "@mui/material"
+import { AppBar, Avatar, Badge, Box, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from "@mui/material"
 
 function Navbar() {
+    const [open, setOpen] = useState(false)
     const StyledToolbar = styled(Toolbar)({
         display: "flex",
         justifyContent: "space-between"
@@ -54,12 +56,29 @@ function Navbar() {
                         <Avatar
                             sx={{ width: 30, height: 30 }}
                             src="https://avatars.githubusercontent.com/u/55743569?v=4"
+                            onClick={e => setOpen(true)}
                         />
                     </Icons>
-                    <UserBox variant="span">
+                    <UserBox variant="span" onClick={e => setOpen(true)}>
                         John
                     </UserBox>
                 </StyledToolbar>
+                <Menu
+                    open={open}
+                    onClose={e => setOpen(false)}
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                >
+                    <MenuItem>Profile</MenuItem>
+                    <MenuItem>My account</MenuItem>
+                    <MenuItem>Logout</MenuItem>
+                </Menu>
             </AppBar>
         </Box>
     )
