@@ -36,7 +36,7 @@ function Navbar() {
 
     return (
         <Box>
-            <AppBar position="sticky">
+            <AppBar position="fixed ">
                 <StyledToolbar>
                     <Typography
                         variant="h6"
